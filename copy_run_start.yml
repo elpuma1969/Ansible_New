@@ -1,0 +1,11 @@
+---
+
+- hosts: Bronx Jersey
+
+  tasks:
+    - name: RUN "WR" meme
+      register: save_config
+      ios_config:
+        save_when: always
+
+

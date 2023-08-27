@@ -1,0 +1,14 @@
+---
+
+- hosts: Bronx Jersey
+
+  tasks:
+    - name: backup
+      cisco.ios.ios_config:
+        backup: yes
+
+    - name: backup with custom backup dir
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          dir_path: "~/afne/backup/{{inventory_hostname}}-config.txt"

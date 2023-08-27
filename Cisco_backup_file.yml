@@ -1,0 +1,16 @@
+---
+
+
+- hosts: Bronx Jersey
+
+  tasks:
+   - name: Backup Config
+     cisco.ios.ios_command:
+       commands: show interface status
+     register: config
+
+   - name: Save output to ~/afne/backup/
+     copy:
+       content: "{{config.stdout[0]}}"
+       dest: "~/afne/backup/{{inventory_hostname}}-Backup_1.txt"
+
